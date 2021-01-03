@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Logger {
+public protocol Logger {
 //    static func setup() -> Logger
     func verbose(_ closure: @autoclosure () -> Any?, _ path: StaticString, _ function: StaticString, line: Int)
     func debug(_ closure: @autoclosure () -> Any?, _ path: StaticString, _ function: StaticString, line: Int)
@@ -17,7 +17,7 @@ protocol Logger {
     func severe(_ closure: @autoclosure () -> Any?, _ path: StaticString, _ function: StaticString, line: Int)
 }
 
-extension Logger {
+public extension Logger {
 
     func verbose(_ closure: @autoclosure () -> Any?, _ path: StaticString? = #file, _ function: StaticString = #function, line: Int = #line) {
         verbose(closure(), path!, function, line: line)
