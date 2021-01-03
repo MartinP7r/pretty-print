@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PrintLogger: Logger {
+public class PrintLogger: Logger {
 
     static var dateFormatter: DateFormatter = {
         let defaultDateFormatter = DateFormatter()
