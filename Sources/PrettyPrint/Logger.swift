@@ -8,7 +8,7 @@
 import Foundation
 
 protocol Logger {
-    static func setup() -> Logger
+//    static func setup() -> Logger
     func verbose(_ closure: @autoclosure () -> Any?, _ path: StaticString, _ function: StaticString, line: Int)
     func debug(_ closure: @autoclosure () -> Any?, _ path: StaticString, _ function: StaticString, line: Int)
     func info(_ closure: @autoclosure () -> Any?, _ path: StaticString, _ function: StaticString, line: Int)

@@ -18,44 +18,46 @@ public class PrintLogger: Logger {
 
     var dateString: String { PrintLogger.dateFormatter.string(from: Date()) }
 
-    static func setup() -> Logger { PrintLogger() }
+//    static func setup() -> Logger { PrintLogger() }
 
-    func verbose(_ closure: @autoclosure () -> Any?, _ path: StaticString, _ function: StaticString, line: Int) {
+    public init() {}
+
+    public func verbose(_ closure: @autoclosure () -> Any?, _ path: StaticString, _ function: StaticString, line: Int) {
         guard let closure = closure() else { return }
         #if DEBUG
         print("\(dateString) ⚪️ [\(String(path).split(separator: "/").last ?? ""):\(line)] \(String(describing: closure))")
         #endif
     }
 
-    func debug(_ closure: @autoclosure () -> Any?, _ path: StaticString, _ function: StaticString, line: Int) {
+    public func debug(_ closure: @autoclosure () -> Any?, _ path: StaticString, _ function: StaticString, line: Int) {
         guard let closure = closure() else { return }
         #if DEBUG
         print("\(dateString) 🔶 [\(String(path).split(separator: "/").last ?? ""):\(line)] \(String(describing: closure))")
         #endif
     }
 
-    func info(_ closure: @autoclosure () -> Any?, _ path: StaticString, _ function: StaticString, line: Int) {
+    public func info(_ closure: @autoclosure () -> Any?, _ path: StaticString, _ function: StaticString, line: Int) {
         guard let closure = closure() else { return }
         #if DEBUG
         print("\(dateString) 💚 [\(String(path).split(separator: "/").last ?? ""):\(line)] \(String(describing: closure))")
         #endif
     }
 
-    func warning(_ closure: @autoclosure () -> Any?, _ path: StaticString, _ function: StaticString, line: Int) {
+    public func warning(_ closure: @autoclosure () -> Any?, _ path: StaticString, _ function: StaticString, line: Int) {
         guard let closure = closure() else { return }
         #if DEBUG
         print("\(dateString) ⚠️ [\(String(path).split(separator: "/").last ?? ""):\(line)] \(String(describing: closure))")
         #endif
     }
 
-    func error(_ closure: @autoclosure () -> Any?, _ path: StaticString, _ function: StaticString, line: Int) {
+    public func error(_ closure: @autoclosure () -> Any?, _ path: StaticString, _ function: StaticString, line: Int) {
         guard let closure = closure() else { return }
         #if DEBUG
         print("\(dateString) 💔 [\(String(path).split(separator: "/").last ?? ""):\(line)] \(String(describing: closure))")
         #endif
     }
 
-    func severe(_ closure: @autoclosure () -> Any?, _ path: StaticString, _ function: StaticString, line: Int) {
+    public func severe(_ closure: @autoclosure () -> Any?, _ path: StaticString, _ function: StaticString, line: Int) {
         guard let closure = closure() else { return }
         #if DEBUG
         print("\(dateString) ☠️ [\(String(path).split(separator: "/").last ?? ""):\(line)] \(String(describing: closure))")
